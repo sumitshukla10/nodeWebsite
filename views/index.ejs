@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato&family=Montserrat:ital,wght@0,400;0,600;0,700;1,300&family=Oswald:wght@400;500&family=Roboto&family=Roboto+Slab:wght@500&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+<style>
+    button{
+        width: 90px;
+        height: 30px;
+        background-color: royalblue;
+        color: white;
+        font-weight: 500;
+        font-size: 15px;
+        border-radius: 15px;
+        box-shadow: 1px 1px 20px black;
+        cursor: pointer;
+        transition: all 0.3s linear;
+    }
+
+    button:hover{
+        background-color: black;
+        scale: 0.9;
+    }
+</style>
+</head>
+<body>
+    <h3>CHATS</h3>
+    <form method="GET" action="/chats/new">
+        <button>New Chat</button>
+    </form>
+    <br>
+    <% for(let chat of chats){%>
+        <div class="chat">
+          <p>From : <%= chat.from %> </p>
+          <div class="msg">
+              <p>Msg : <%= chat.msg %> </p>
+              <form action="/chats/<%=chat._id%>/edit" method="get">
+                <button class="edit">Edit</button>
+              </form>
+              <form action="/chats/<%=chat._id%>?_method=delete" method="post">
+                <button class=" edit delete">Delete</button>
+              </form>
+          </div>
+          <p>Received By : <%= chat.to %> </p>
+          <p><%= chat.created_at.toString().split(" ")[4]%></p>
+          <p><%= chat.created_at.toString().split(" ").slice(0,4).join(" ")%></p>
+        </div>
+        <br/> <br/>
+  <%}%>
+</body>
+</html>
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Your Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        span{
+            color: maroon;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: underline blue;
+        }
+        body{
+    background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%)
+    ;
+    margin-left: 25px;
+}
+          h2{
+            color:darkblue;
+            font-size: 30px;
+            text-shadow: 1px 1.5px 12px royalblue;
+          }
+
+          h4{
+            font-weight: 600;
+            font-size: 18px;
+          }
+
+          textarea{
+            background-color: rgb(161, 211, 231);
+            border-radius: 20px;
+            padding: 12px;
+            color: darkred;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 700;
+            box-shadow: 2px 2px 20px black;
+          }
+          button{
+            width: 80px;
+            height: 30px;
+            background-color: royalblue;
+            color: white;
+            font-weight: 500;
+            font-size: 17px;
+            border-radius: 15px;
+            box-shadow: 1px 1px 18px black;
+            margin-top: 10px;
+          }
+
+          @media (max-width:650px) {
+            h2{
+            font-size: 18px;
+          }
+          }
+    </style>
+  </head>
+  <body>
+    <h2>Edit Your Chat : <%= chat._id%></h2>
+    <h4>This Chat was sent from: <span><%=chat.from%></span> to <span><%= chat.to%></span></h4>
+    <form action="/chats/<%=chat._id%>?_method=put" method="post">
+      <textarea
+        name="msg"
+        id="msg"
+        cols="30"
+        rows="10"
+        placeholder="Edit your message here"
+        ><%=chat.msg%>
+    </textarea><br/>
+      <button>Edit</button>
+    </form>
+  </body>
+</html>

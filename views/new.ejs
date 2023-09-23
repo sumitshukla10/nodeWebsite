@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            background-color: #e96443; 
+            background: -webkit-linear-gradient(to right, #904e95, #e96443);  
+            background: linear-gradient(to right, #904e95, #e96443); 
+        }
+
+        h3{
+            font-size: 25px;
+        }
+
+        input{
+            width: 150px;
+            height: 28px;
+            text-align: center;
+            border-radius: 15px;
+            color: black;
+            font-weight: 600;
+            text-shadow: 1px 1px 12px red;
+           box-shadow: 2px 2px 18px black;
+        }
+
+        textarea{
+            border-radius: 16px;
+            box-shadow: 1px 1px 19px black;
+            padding: 8px;
+        }
+
+        button{
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 2px 2px 20px black;
+            cursor: pointer;
+            transition: all 0.8s linear;
+        }
+
+        button:hover{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h3> Write New Chat...</h3><hr><br>
+    <form action="/chats" method="POST">
+        <input type="text" name="from" id="from" placeholder="Who are you?"><br> &nbsp; &nbsp;<br><br>
+        <textarea name="msg" id="msg" cols="30" rows="10" placeholder="write your msg here..."></textarea><br>&nbsp; &nbsp; <br><br>
+        <input type="text" name="to" id="to" placeholder="add receiver"><br>&nbsp; &nbsp; &nbsp; &nbsp; <br> <br>
+        <button>Create Chat</button>
+    </form>
+</body>
+</html>
